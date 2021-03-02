@@ -1,5 +1,7 @@
-package com.jitterted.ebp.blackjack;
+package com.jitterted.ebp.blackjack.adapter.in.console;
 
+import com.jitterted.ebp.blackjack.domain.Card;
+import com.jitterted.ebp.blackjack.domain.Rank;
 import org.fusesource.jansi.Ansi;
 
 import static org.fusesource.jansi.Ansi.ansi;
@@ -7,7 +9,7 @@ import static org.fusesource.jansi.Ansi.ansi;
 public class ConsoleCard {
 
   // String display(Card card): Transform DOMAIN -> OUTSIDE WORLD (console)
-  public static String display(Card card) {
+  static String display(Card card) {
     String[] lines = new String[7];
     lines[0] = "┌─────────┐";
     lines[1] = String.format("│%s%s       │", card.rank().display(), card.rank() == Rank.TEN ? "" : " ");

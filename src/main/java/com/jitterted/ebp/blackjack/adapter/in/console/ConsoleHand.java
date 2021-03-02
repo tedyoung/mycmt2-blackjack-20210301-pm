@@ -1,12 +1,16 @@
-package com.jitterted.ebp.blackjack;
+package com.jitterted.ebp.blackjack.adapter.in.console;
+
+import com.jitterted.ebp.blackjack.domain.Hand;
 
 import java.util.stream.Collectors;
 
 import static org.fusesource.jansi.Ansi.ansi;
 
+// Role of a DTO (domain -> console transformation), shouldn't be called outside of the Adapter package
+// GOAL: this should be package access
 public class ConsoleHand {
 
-  static String displayFirstCard(Hand hand) {
+  public static String displayFirstCard(Hand hand) {
     return ConsoleCard.display(hand.cards().get(0));
   }
 

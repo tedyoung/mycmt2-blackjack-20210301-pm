@@ -1,4 +1,6 @@
-package com.jitterted.ebp.blackjack;
+package com.jitterted.ebp.blackjack.adapter.in.console;
+
+import com.jitterted.ebp.blackjack.domain.Game;
 
 public class ConsoleGame {
 
@@ -8,6 +10,7 @@ public class ConsoleGame {
     this.game = game;
   }
 
+  // Assembler/Bootstrap/App Startup
   public static void main(String[] args) {
     Game game = new Game();
     ConsoleGame consoleGame = new ConsoleGame(game);
