@@ -88,7 +88,7 @@ public class ConsoleGame {
 
     displayFinalGameState();
 
-    String outcome = game.determineOutcome();
+    String outcome = game.determineOutcome().display();
     System.out.println(outcome);
 
     resetScreen();
