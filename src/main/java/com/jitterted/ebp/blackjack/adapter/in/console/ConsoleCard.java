@@ -6,7 +6,7 @@ import org.fusesource.jansi.Ansi;
 
 import static org.fusesource.jansi.Ansi.ansi;
 
-public class ConsoleCard {
+class ConsoleCard {
 
   // String display(Card card): Transform DOMAIN -> OUTSIDE WORLD (console)
   static String display(Card card) {

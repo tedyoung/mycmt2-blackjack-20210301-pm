@@ -8,13 +8,13 @@ import static org.fusesource.jansi.Ansi.ansi;
 
 // Role of a DTO (domain -> console transformation), shouldn't be called outside of the Adapter package
 // GOAL: this should be package access
-public class ConsoleHand {
+class ConsoleHand {
 
-  public static String displayFirstCard(Hand hand) {
+  static String displayFirstCard(Hand hand) {
     return ConsoleCard.display(hand.cards().get(0));
   }
 
-  public static String cardsAsString(Hand hand) {
+  static String cardsAsString(Hand hand) {
     return hand.cards().stream()
                .map(ConsoleCard::display)
                .collect(Collectors.joining(
