@@ -23,18 +23,20 @@ public class Game {
     dealerHand.drawFrom(deck);
   }
 
-  public void determineOutcome() {
+  public String determineOutcome() {
     if (playerHand.isBusted()) {
-      System.out.println("You Busted, so you lose.  💸");
-    } else if (dealerHand.isBusted()) {
-      System.out.println("Dealer went BUST, Player wins! Yay for you!! 💵");
-    } else if (playerHand.beats(dealerHand)) {
-      System.out.println("You beat the Dealer! 💵");
-    } else if (playerHand.pushes(dealerHand)) {
-      System.out.println("Push: The house wins, you Lose. 💸");
-    } else {
-      System.out.println("You lost to the Dealer. 💸");
+      return "You Busted, so you lose.  💸";
     }
+    if (dealerHand.isBusted()) {
+      return "Dealer went BUST, Player wins! Yay for you!! 💵";
+    }
+    if (playerHand.beats(dealerHand)) {
+      return "You beat the Dealer! 💵";
+    }
+    if (playerHand.pushes(dealerHand)) {
+      return "Push: The house wins, you Lose. 💸";
+    }
+    return "You lost to the Dealer. 💸";
   }
 
   public void dealerTurn() {
