@@ -36,10 +36,6 @@ public class Hand {
     return List.copyOf(cards);
   }
 
-  void display() {
-    System.out.println(ConsoleHand.cardsAsString(this));
-  }
-
   boolean dealerMustDrawCard() {
     return value() <= 16;
   }
