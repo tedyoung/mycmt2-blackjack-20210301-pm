@@ -41,7 +41,7 @@ public class Game {
       return GameOutcome.PLAYER_BEATS_DEALER;
     }
     if (playerHand.pushes(dealerHand)) {
-      return GameOutcome.PLAYER_PUSHES_DEALER;
+      return GameOutcome.PLAYER_PUSHES;
     }
     return GameOutcome.PLAYER_LOSES;
   }
