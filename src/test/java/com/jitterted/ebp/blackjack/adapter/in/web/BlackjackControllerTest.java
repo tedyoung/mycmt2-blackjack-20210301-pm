@@ -13,7 +13,10 @@ class BlackjackControllerTest {
     Game game = new Game(new Deck());
     BlackjackController blackjackController = new BlackjackController(game);
 
-    blackjackController.startGame();
+    String page = blackjackController.startGame();
+
+    assertThat(page)
+        .isEqualTo("redirect:/game");
 
     assertThat(game.playerHand().cards())
         .hasSize(2);
