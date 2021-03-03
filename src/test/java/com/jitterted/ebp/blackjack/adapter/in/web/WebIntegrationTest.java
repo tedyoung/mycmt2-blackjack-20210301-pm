@@ -32,4 +32,10 @@ public class WebIntegrationTest {
     mockMvc.perform(get("/game"))
            .andExpect(status().isOk());
   }
+
+  @Test
+  public void postToHitEndpointIs3xxRedirect() throws Exception {
+    mockMvc.perform(post("/hit"))
+           .andExpect(status().is3xxRedirection());
+  }
 }
