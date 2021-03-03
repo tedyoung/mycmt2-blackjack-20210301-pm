@@ -52,4 +52,34 @@ class BlackjackControllerTest {
         .containsExactly("10♦", "K♦");
   }
 
+  @Test
+  public void hitCommandDealsAdditionalCardToPlayer() throws Exception {
+    Deck playerHitDoesNotGoBustDeck =  new StubDeck(Rank.QUEEN, Rank.EIGHT,
+                                                    Rank.TWO, Rank.KING,
+                                                    Rank.NINE);
+    Game game = new Game(playerHitDoesNotGoBustDeck);
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    String page = blackjackController.hitCommand();
+
+    assertThat(page)
+        .isEqualTo("redirect:/game");
+
+    assertThat(game.playerHand().cards())
+        .hasSize(3);
+  }
+
+  @Test
+  public void hitAndPlayerBustsResultsInRedirectToDonePage() throws Exception {
+    Game game = new Game(StubDeck.createPlayerBustsWhenHit());
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    String page = blackjackController.hitCommand();
+
+    assertThat(page)
+        .isEqualTo("redirect:/done");
+  }
+
 }

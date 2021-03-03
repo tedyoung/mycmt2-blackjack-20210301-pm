@@ -60,6 +60,7 @@ public class Game {
   }
 
   public void playerHits() {
+    // if playerDone, throw exception
     playerHand.drawFrom(deck);
     playerDone = playerHand.isBusted();
   }

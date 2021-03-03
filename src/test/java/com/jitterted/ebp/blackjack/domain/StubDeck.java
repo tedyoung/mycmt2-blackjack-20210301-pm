@@ -20,6 +20,13 @@ public class StubDeck extends Deck {
     iterator = cards.listIterator();
   }
 
+  // Factory Method
+  public static Deck createPlayerBustsWhenHit() {
+    return new StubDeck(Rank.QUEEN, Rank.EIGHT,
+                        Rank.TEN, Rank.FOUR,
+                        Rank.TWO);
+  }
+
   @Override
   public Card draw() {
     return iterator.next();

@@ -8,9 +8,7 @@ class GameOutcomeTest {
 
   @Test
   public void playerHitsAndGoesBustAndLoses() throws Exception {
-    Deck playerGoesBustWhenHitDeck = new StubDeck(Rank.QUEEN, Rank.EIGHT,
-                                                  Rank.TEN, Rank.FOUR,
-                                                  Rank.TWO);
+    Deck playerGoesBustWhenHitDeck = StubDeck.createPlayerBustsWhenHit();
     Game game = new Game(playerGoesBustWhenHitDeck);
     game.initialDeal();
 
