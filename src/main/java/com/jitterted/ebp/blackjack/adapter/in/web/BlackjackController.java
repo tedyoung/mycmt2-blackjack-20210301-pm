@@ -38,6 +38,7 @@ public class BlackjackController {
       return "redirect:/done";
     }
     return "redirect:/game";
+    // game.currentState() -> GameStateEnum: GAME_OVER, GAME_IN_PROGRESS, GAME_SPLITTABLE (Similar to HATEOS/Hypermedia)
   }
 
   @PostMapping("/stand")
