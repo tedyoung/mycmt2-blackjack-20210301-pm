@@ -100,4 +100,24 @@ class BlackjackControllerTest {
         .isNotBlank();
   }
 
+  @Test
+  public void playerStandsResultsInGamePlayerIsDone() throws Exception {
+    Game game = new Game(new Deck());
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    String page = blackjackController.standCommand();
+
+    assertThat(page)
+        .isEqualTo("redirect:/done");
+
+    assertThat(game.isPlayerDone())
+        .isTrue();
+  }
+
+  @Test
+  public void standResultsInPlayerBeatsDealerWhoDrewAdditionalCard() throws Exception {
+    // tbd
+  }
+
 }
