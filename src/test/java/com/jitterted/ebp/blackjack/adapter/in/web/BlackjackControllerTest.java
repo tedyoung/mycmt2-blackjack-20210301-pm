@@ -3,6 +3,7 @@ package com.jitterted.ebp.blackjack.adapter.in.web;
 import com.jitterted.ebp.blackjack.domain.Card;
 import com.jitterted.ebp.blackjack.domain.Deck;
 import com.jitterted.ebp.blackjack.domain.Game;
+import com.jitterted.ebp.blackjack.domain.GameOutcome;
 import com.jitterted.ebp.blackjack.domain.Rank;
 import com.jitterted.ebp.blackjack.domain.StubDeck;
 import com.jitterted.ebp.blackjack.domain.Suit;
@@ -116,8 +117,19 @@ class BlackjackControllerTest {
   }
 
   @Test
-  public void standResultsInPlayerBeatsDealerWhoDrewAdditionalCard() throws Exception {
-    // tbd
+  // This test is redundant, the DOMAIN testing already handles checking this behavior
+  public void standResultsInPlayerLosesDealerWhoDrewAdditionalCard() throws Exception {
+    Deck dealerBeatsPlayerAfterDrawingAdditionalCardDeck = new StubDeck(Rank.TEN, Rank.QUEEN,
+                                                                        Rank.EIGHT, Rank.FIVE,
+                                                                                     Rank.SIX);
+    Game game = new Game(dealerBeatsPlayerAfterDrawingAdditionalCardDeck);
+    BlackjackController blackjackController = new BlackjackController(game);
+    blackjackController.startGame();
+
+    blackjackController.standCommand();
+
+    assertThat(game.determineOutcome())
+        .isEqualByComparingTo(GameOutcome.PLAYER_LOSES);
   }
 
 }

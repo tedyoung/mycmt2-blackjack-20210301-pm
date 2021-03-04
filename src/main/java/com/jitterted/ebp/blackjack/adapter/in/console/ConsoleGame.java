@@ -85,8 +85,6 @@ public class ConsoleGame {
 
     playerPlays();
 
-    game.dealerTurn();
-
     displayFinalGameState();
 
     GameOutcome outcome = game.determineOutcome();

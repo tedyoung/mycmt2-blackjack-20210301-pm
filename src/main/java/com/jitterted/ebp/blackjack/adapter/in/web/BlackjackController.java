@@ -44,6 +44,7 @@ public class BlackjackController {
   public String standCommand() {
     // gameService.playerStands(gameId, playerId)
     game.playerStands();
+
     return "redirect:/done";
   }
 
